@@ -22,9 +22,9 @@ pipeline {
             steps {
                 dir('jenkins-terraform-pipeline/ec2_pipeline/'){
                     sh "terraform init -input=false -force-copy \
-                        -backend-config=bucket\=blockchain-project1 \
-                        -backend-config=key\=network/terraform.tfstate \
-                        -backend-config=region\=us-east-1"
+                        -backend-config=bucket = blockchain-project1 \
+                        -backend-config=key = network/terraform.tfstate \
+                        -backend-config=region = us-east-1"
                     sh "echo \$PWD"
                     sh "whoami"
                 }

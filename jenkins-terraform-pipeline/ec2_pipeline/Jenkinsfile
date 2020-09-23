@@ -12,12 +12,16 @@ pipeline {
         PATH = "$TF_HOME:$PATH"
         ACCESS_KEY = credentials('AWS_ACCESS_KEY_ID')
         SECRET_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+        TF_Bucket = -backend-config = "bucket=blockchain-project1"
+        TF_Bucket_Key = -backend-config = "key=network/terraform.tfstate"
+        TF_Region = -backend-config = "region=us-east-1"
+        TF_Param_Collection = $TF_Bucket$TF_Bucket_Key$TF_Region
     }
     stages {
             stage('TerraformInit'){
             steps {
                 dir('jenkins-terraform-pipeline/ec2_pipeline/'){
-                    sh "terraform init -backend-config="path = ~/.aws/credentials""
+                    sh "terraform init -backend=s3 $TF_Param_Collection"
                     sh "echo \$PWD"
                     sh "whoami"
                 }

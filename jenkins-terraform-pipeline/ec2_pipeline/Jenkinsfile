@@ -21,7 +21,7 @@ pipeline {
             stage('TerraformInit'){
             steps {
                 dir('jenkins-terraform-pipeline/ec2_pipeline/'){
-                    sh "terraform init -backend-config ="backend.tf""
+                    sh "terraform init -backend-config=backend.hcl"
                     sh "echo \$PWD"
                     sh "whoami"
                 }

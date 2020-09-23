@@ -24,7 +24,7 @@ pipeline {
             }
         }
 
-        stage('TerraformFormat'){
+        /*stage('TerraformFormat'){
             steps {
                 dir('jenkins-terraform-pipeline/ec2_pipeline/'){
                     sh "terraform fmt -list=true -write=false -diff=true -check=true"
@@ -38,7 +38,7 @@ pipeline {
                     sh "terraform validate"
                 }
             }
-        }
+        }*/
 
         stage('TerraformPlan'){
             steps {

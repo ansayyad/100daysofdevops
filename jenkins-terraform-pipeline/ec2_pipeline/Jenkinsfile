@@ -24,7 +24,27 @@ pipeline {
             }
         }
 
+<<<<<<< HEAD
             stage('TerraformPlan'){
+=======
+        /*stage('TerraformFormat'){
+            steps {
+                dir('jenkins-terraform-pipeline/ec2_pipeline/'){
+                    sh "terraform fmt -list=true -write=false -diff=true -check=true"
+                }
+            }
+        }
+
+        stage('TerraformValidate'){
+            steps {
+                dir('jenkins-terraform-pipeline/ec2_pipeline/'){
+                    sh "terraform validate"
+                }
+            }
+        }*/
+
+        stage('TerraformPlan'){
+>>>>>>> a2989bff087f9dd12ef98d9cf4ca6e5aefff7a40
             steps {
                 dir('jenkins-terraform-pipeline/ec2_pipeline/'){
                     script {

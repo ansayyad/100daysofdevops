@@ -4,7 +4,6 @@ provider "aws" {
   secret_key = var.secret_key
 }
 
-resource "aws_instance" "example" {
-  ami           = "ami-01ed306a12b7d1c96"
-  instance_type = "t2.medium"
+terraform {
+  required_version = "~> 0.12"
 }
